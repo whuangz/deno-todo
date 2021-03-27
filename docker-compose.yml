@@ -20,6 +20,7 @@ services:
     environment: 
       - PORT=3001
       - URL="http://localhost"
+      - DB_NAME=deno-todo
       - MONGO_URL=mongodb://api_mongo:27017
     volumes: 
       - ./api/src:/usr/app/src

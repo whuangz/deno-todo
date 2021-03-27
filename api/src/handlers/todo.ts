@@ -1,3 +1,7 @@
+import db from "../helpers/mongodb.ts";
+
+const mongoDB = db.getDatabase().collection("todo");
+
 const get = async(context: any) => {
     try {
         const todo = {
@@ -22,4 +26,15 @@ const get = async(context: any) => {
     }
 };
 
-export {get};
+const post = async(c: any) => {
+    const body = c.request.body;
+    const data = await body.value;
+
+    const response = await mongoDB.insertOne(data);
+
+    c.response.body = JSON.stringify(response);
+
+
+};
+
+export {get, post};

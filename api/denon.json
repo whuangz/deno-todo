@@ -6,6 +6,9 @@
     },
     "allow": [
         "net",
-        "env"
+        "env",
+        "write",
+        "read",
+        "plugin"
     ]
 }
